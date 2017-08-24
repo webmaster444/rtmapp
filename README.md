@@ -2,7 +2,7 @@
   Rapid Talent Mapping Application
 </p>
 
-## Dependency
+## Dependencies
 
  - Ruby 2.3.1
  - Rails 5.1
