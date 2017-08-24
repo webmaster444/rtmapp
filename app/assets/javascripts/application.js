@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require dataTables/jquery.dataTables
+//= require dataTables/extras/dataTables.responsive
 //= require_tree .

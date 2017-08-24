@@ -12,18 +12,21 @@
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
   </head>
   <body>            
+    <div id="wrapper">
       <!-- Navigation -->
       <%= render 'layouts/sidebar' %>
       <%= render 'layouts/navigation' %>
       <!-- Header -->
-      <div class="container" id="main">
-
-          <div class="row">
-              <div class="col-md-12">            
-              <%= render 'layouts/messages' %>
-                <%= yield %>  
-              </div>
-          </div>
-      </div>   
+      <div id="main">
+        <div class="container-fluid" >
+            <div class="row">
+                <div class="col-md-12">            
+                <%= render 'layouts/messages' %>
+                  <%= yield %>  
+                </div>
+            </div>
+        </div>   
+      </div>
+    </div>
   </body>
 </html>

@@ -8,15 +8,23 @@ $highlightColor : #E32B30;
   margin-bottom: 0px;
   border-radius: 0px;
 }
+#main{
+  background:#ddd;
+}
 @media (min-width: 767px) {
 #topnav{
   width:calc(100% - 250px);
-  left:250px;
+  position: fixed;
+  right: 0;  
 }
 }
 
 #main{
-	background:#ddd;
+  width: calc(100% - 250px);
+  float: right;
+  position: fixed;
+  right: 0;
+  top: 50px;  
 }
 
 /* vietnamese */
@@ -111,4 +119,9 @@ body, h1, a{
   #disable_btn{
     color: $highlightColor;
   }
+}
+
+
+#wrapper{
+  display: flex;
 }
