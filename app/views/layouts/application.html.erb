@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
   </head>
-  <body>      
+  <body>            
       <!-- Navigation -->
       <%= render 'layouts/sidebar' %>
       <%= render 'layouts/navigation' %>
@@ -20,6 +20,7 @@
 
           <div class="row">
               <div class="col-md-12">            
+              <%= render 'layouts/messages' %>
                 <%= yield %>  
               </div>
           </div>

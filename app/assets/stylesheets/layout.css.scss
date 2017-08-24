@@ -1,6 +1,7 @@
 $themeColor : #417B9A;
 $textColor  : #3D4A51;
 $fontFamily : Montserrat;
+$highlightColor : #E32B30;
 #topnav{
   background-color: $themeColor;  
   border-color : $themeColor;
@@ -50,4 +51,64 @@ body, h1, a{
 .intro-message{
 	padding-top: 25%;
 	padding-bottom: 30%;
+}
+
+.register-form{
+  width: 80%;
+  margin: 50px auto 0;
+  .form-header{
+    background: $themeColor;
+    padding: 10px;    
+    font-size: 30px;
+    text-align: center;
+    color: white;
+  }
+  .form-body{
+    padding: 40px 80px;
+    background: #ccc;
+    text-align: center;
+  }
+
+  .form-group{
+    label{
+      width: 30%;
+      padding-right: 30px;
+      text-align: right;
+    }
+    input{
+      width: 70%;
+      float: right;
+    }
+  }
+
+  #user_role{
+    width: 70%;
+    float: right;
+  }
+  #privilege_section{
+    border: 3px solid #aaa;
+    padding: 30px;
+    margin: 30px 0px;
+  }
+  .privilege-select{
+    width: 100%;
+    margin-left: 30%;
+    text-align: left;
+  }
+
+  #save_btn{
+    padding: 10px 20px;
+    background: $themeColor;
+    color: white;
+    width: auto;
+    float: none;
+  }
+  .outlined-btn{
+    padding: 10px 20px;
+    border: 2px solid #aaa;
+    border-radius: 0px;
+  }
+  #disable_btn{
+    color: $highlightColor;
+  }
 }

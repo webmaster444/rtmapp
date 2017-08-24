@@ -16,13 +16,17 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find(params[:id])        
     if @user.update_attributes(secure_params)
       redirect_to users_path, :notice => "User updated."
     else
       redirect_to users_path, :alert => "Unable to update user."
     end
   end
+  
+  def edit
+     @user = User.find(params[:id])
+   end
 
   def destroy
     user = User.find(params[:id])
@@ -39,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   def secure_params
-    params.require(:user).permit(:role)
+    params.require(:user).permit(:contact, :phone, :caa,:cua,:pm,:etp,:vsd,:eci,:role)
   end
 
 end
