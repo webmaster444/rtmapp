@@ -1,6 +1,4 @@
-<p align="center">
-  Rapid Talent Mapping Application
-</p>
+## Rapid Talent Mapping Application
 
 ## Dependencies
 
