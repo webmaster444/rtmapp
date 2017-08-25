@@ -13,8 +13,8 @@
   </head>
   <body>            
     <div id="wrapper">
-      <!-- Navigation -->
-      <%= render 'layouts/sidebar' %>
+      <!-- Navigation -->                  
+      <%= render partial: "layouts/sidebar", locals: {map: $g_maps} %>
       <%= render 'layouts/navigation' %>
       <!-- Header -->
       <div id="main">

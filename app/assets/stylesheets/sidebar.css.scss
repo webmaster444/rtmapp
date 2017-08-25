@@ -73,6 +73,11 @@ $highlightColor : #E32B30;
 }
 .nav-side-menu li {
   padding-left: 0px;
+  height: 40px;
+  overflow: hidden;
+}
+.nav-side-menu li.input{
+  height: inherit;
 }
 .nav-side-menu li a {
   text-decoration: none;
@@ -131,6 +136,9 @@ body {
       color: $themeColor;
     }
   }
+  .active .menu-item{
+    color: $themeColor;
+  }
 
   .item-divider{
     margin-top: 15px;
@@ -143,7 +151,7 @@ body {
     margin: 10px 0px;
   }
 
-  #createMapBtn{
+  .createMapBtn{
     width: 100%;
     background-color: #417B9A;
     display: block;

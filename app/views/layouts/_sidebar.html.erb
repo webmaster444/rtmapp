@@ -21,43 +21,28 @@
                 <span class="item-title"> My Map </span>
             </li>                        
 
-            <li>
+            <li class="input">
                 <input id="search_map" type="text" placeholder="Find a Map" />
-            </li>
+            </li>            
+            
+            <% unless $g_maps.nil? %>
+              <% $g_maps.each_with_index do |map, index| %>
+              <% if(index <5) %>
+              <li>
+                <%= link_to map.maptitle, map_path(map) ,:class => 'menu-item'%>
+              </li>
+              <% end %>
+              <% end %>
+            <% end %>
 
+            <% if $g_maps.size > 5 %>
             <li>
-                <a href="#" class="menu-item">
-                    Map Name 1
-                </a>
+                <%= s = $g_maps.size - 5
+                link_to '...' + s.to_s + ' more maps', 'maps/moremaps' ,:class => 'menu-item'%>
             </li>
-            <li>
-                <a href="#" class="menu-item">
-                    Map Name 2
-                </a>
-            </li>
-            <li>
-                <a href="#" class="menu-item">
-                    Map Name 3
-                </a>
-            </li>
-            <li>
-                <a href="#" class="menu-item">
-                    Map Name 4
-                </a>
-            </li>
-            <li>
-                <a href="#" class="menu-item">
-                    Map Name 5
-                </a>
-            </li>
-            <li>
-                <a href="#" class="menu-item">
-                    ... 12 more maps
-                </a>
-            </li>
-
-            <li>
-                <a href="#" id="createMapBtn"> Create New Map</a>
+            <% end %>
+            <li>                
+                <%= link_to 'Create New Map', new_map_path ,:class => 'createMapBtn'%>
             </li>
             <hr class="item-divider">
             <li>
@@ -65,4 +50,5 @@
             </li>
         </ul>
     </div>
-</div>            
+</div> 
+
