@@ -38,7 +38,7 @@
             <% if $g_maps.size > 5 %>
             <li>
                 <%= s = $g_maps.size - 5
-                link_to '...' + s.to_s + ' more maps', 'maps/moremaps' ,:class => 'menu-item'%>
+                link_to '...' + s.to_s + ' more maps', '/maps/moremaps' ,:class => 'menu-item'%>
             </li>
             <% end %>
             <li>                
@@ -47,7 +47,7 @@
             <hr class="item-divider">
             <li>
                 <span class="item-title"> Map Details </span>
-            </li>
+            </li>            
         </ul>
     </div>
 </div> 

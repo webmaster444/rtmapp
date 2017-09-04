@@ -128,3 +128,20 @@ body, h1, a{
     width:100%;
   }
 }
+
+#settingsBtn{
+  position: fixed;
+  right: 0;
+  top: 80px;      
+  background: #bbb;    
+  padding: 15px;
+}
+
+#settings-section{
+  position: fixed;
+  right: -400px;
+  background: #eee;
+  width: 400px;
+  padding: 20px;
+  top: 80px;
+}

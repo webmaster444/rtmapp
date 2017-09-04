@@ -16,4 +16,5 @@
 //= require bootstrap-sprockets
 //= require dataTables/jquery.dataTables
 //= require dataTables/extras/dataTables.responsive
+//= require jquery.minicolors
 //= require_tree .
