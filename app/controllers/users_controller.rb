@@ -3,10 +3,12 @@ class UsersController < ApplicationController
   before_action :admin_only, :except => :show
 
   def index
+    $selectedmap = nil
     @users = User.all
   end
 
   def show
+    $selectedmap = nil
     @user = User.find(params[:id])
     unless current_user.admin?
       unless @user == current_user
@@ -25,6 +27,7 @@ class UsersController < ApplicationController
   end
   
   def edit
+    $selectedmap = nil
      @user = User.find(params[:id])
    end
 

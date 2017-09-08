@@ -10,9 +10,10 @@ Rails.application.routes.draw do
 	end
 	resources :maps do
 		collection {post:import}
+		collection {post:ctg}
 	end
 	as :map do
 		get "maps/:id/vsd", to:"maps#vsd"
-		# post "maps/:id/import", to:"maps#import", as:"import_csv"
+		get "maps/:id/vgs", to:"maps#vgs" , as: "groupsummary"		
 	end	
 end

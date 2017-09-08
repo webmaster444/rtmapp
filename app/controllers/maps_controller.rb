@@ -2,6 +2,7 @@ class MapsController < ApplicationController
 	def new		
 	end
   def show
+  	$selectedmap = Map.find(params[:id])
 	@map = Map.find(params[:id])					
 	unless @map.sourcefile.nil?
 		open_file_name = Rails.root.join('public', 'uploads', @map.sourcefile)
@@ -43,6 +44,17 @@ class MapsController < ApplicationController
 			@csv_table = CSV.open(open_file_name, :headers => true).read	
 		end
 	end
+
+	def vgs
+		@map = Map.find(params[:id])	
+
+		@trait = Trait.find(@map.trait_id)		
+
+		unless @map.sourcefile.nil?
+			open_file_name = Rails.root.join('public', 'uploads', @map.sourcefile)
+			@csv_table = CSV.open(open_file_name, :headers => true).read	
+		end
+	end
 	def moremaps
 		@map = Map.all
 	end
@@ -56,12 +68,21 @@ class MapsController < ApplicationController
 		  file.write(uploaded_io.read)
 		end					
 		
+		headers = CSV.read(Rails.root.join('public', 'uploads', uploaded_file_name), headers: true).headers
+		headers.shift(4)	
+		
+		trait = Trait.new(trait: headers)
+		trait.save
+		
 		@map = Map.find(params[:id])	
-		if @map.update(sourcefile: uploaded_file_name)
+		if @map.update(sourcefile: uploaded_file_name,trait_id: trait.id)		
 		  redirect_to @map		
 		end
 	end
 
+	def ctg
+
+	end
 	private
 	def map_params
 		params.require(:map).permit(:datapoints, :maptitle)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170904141711) do
+ActiveRecord::Schema.define(version: 20170907092645) do
 
   create_table "maps", force: :cascade do |t|
     t.string "maptitle"
@@ -18,6 +18,25 @@ ActiveRecord::Schema.define(version: 20170904141711) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "sourcefile"
+    t.integer "trait_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "traitgroups", force: :cascade do |t|
+    t.string "traitgroup"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "traits", force: :cascade do |t|
+    t.string "trait"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

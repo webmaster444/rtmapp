@@ -10,6 +10,11 @@ $highlightColor : #E32B30;
 }
 #main{
   background:#ddd;
+  margin-bottom: 70px;
+}
+
+#main > div.container-fluid{
+  padding: 30px 20px 70px;
 }
 
 @media (min-width: 767px) {
@@ -144,4 +149,51 @@ body, h1, a{
   width: 400px;
   padding: 20px;
   top: 80px;
+}
+
+fieldset{
+  border: 3px solid #c0c0c0;
+margin: 0 2px;
+padding: 0.35em 0.625em 0.75em;
+}
+
+legend{
+  width: auto;
+  margin-bottom: 0px;
+  padding: 0 10px;
+  border: none;
+  color: #aaa;
+}
+
+tag{
+  background:#bbb;
+}
+
+tags{
+  background: white;
+  border: 3px solid #bbb;
+}
+
+.modal-backdrop{
+  position: relative;
+}
+
+#ctgmodal .modal-dialog{
+  width: 80%;
+  .modal-body{
+    max-height: 800px;
+    overflow-y: scroll;
+    #checkbox_wrapper{
+      display:flex;
+      flex-wrap: wrap;
+    }
+    .button-checkbox{
+      flex: 1 auto;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+#menu-content .menu-item.detail-menu{
+  font-size: 12px;
 }

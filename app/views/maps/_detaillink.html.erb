@@ -1,0 +1,6 @@
+<li><span> <%= $selectedmap.maptitle %></li>
+<li><%= link_to "View Source Data", map_path($selectedmap) ,:class => 'menu-item detail-menu'%></li>
+<li><%= link_to "View Group Summary", groupsummary_path($selectedmap) ,:class => 'menu-item detail-menu'%></li>
+<li><%= link_to "View Correlation Matrix", '#' ,:class => 'menu-item detail-menu'%></li>
+<li><%= link_to "View Single Graph", '#' ,:class => 'menu-item detail-menu'%></li>
+<li><%= link_to "Map Dashboard", '#' ,:class => 'menu-item detail-menu'%></li>

@@ -3,8 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def index
-  	$g_maps = Map.order('updated_at DESC')  	
-
+  	$g_maps = Map.order('updated_at DESC')  	    
   end
   protected
 

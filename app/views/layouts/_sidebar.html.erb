@@ -46,8 +46,11 @@
             </li>
             <hr class="item-divider">
             <li>
-                <span class="item-title"> Map Details </span>
+                <span class="item-title"> Map Details </span>                
             </li>            
+            <% unless $selectedmap.nil? %>
+            <%= render 'maps/detaillink' %>
+            <% end %>
         </ul>
     </div>
 </div> 
