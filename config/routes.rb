@@ -15,5 +15,6 @@ Rails.application.routes.draw do
 	as :map do
 		get "maps/:id/vsd", to:"maps#vsd"
 		get "maps/:id/vgs", to:"maps#vgs" , as: "groupsummary"		
+		get "maps/:id/vcm", to:"maps#vcm" , as: "correlationmatrix"		
 	end	
 end

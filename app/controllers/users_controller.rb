@@ -48,5 +48,4 @@ class UsersController < ApplicationController
   def secure_params
     params.require(:user).permit(:contact, :phone, :caa,:cua,:pm,:etp,:vsd,:eci,:role)
   end
-
 end

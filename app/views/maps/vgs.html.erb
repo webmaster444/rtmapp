@@ -14,8 +14,8 @@
 <div class='col-sm-6'>
  <fieldset>
   <legend align="center">TAGS</legend>
-  Include Tags: <textarea id="inTags" name='tags2' placeholder='Add Tags'>The Matrix, Pulp Fiction, Mad Max</textarea><br>
-  Exclude Tags: <textarea id="exTags" name='tags2' placeholder='Add Tags'>The Matrix, Pulp Fiction, Mad Max</textarea><br>  
+  Include Tags: <textarea id="inTags" name='tags2' placeholder='Add Tags'></textarea><br>
+  Exclude Tags: <textarea id="exTags" name='tags2' placeholder='Add Tags'></textarea><br>  
  </fieldset>
 </div>
 </div>
@@ -24,36 +24,38 @@
 <div class='col-sm-6'>
  <fieldset>
   <legend align="center">TRAITS</legend>
-  Include Traits: <textarea id="inTraits" name='tags2' placeholder='Add Traits'>The Matrix, Pulp Fiction, Mad Max</textarea><br>
-  Exclude Traits: <textarea id="exTraits" name='tags2' placeholder='Add Traits'>The Matrix, Pulp Fiction, Mad Max</textarea><br>  
+  Include Traits: <textarea id="inTraits" name='tags2' placeholder='Add Traits'></textarea><br>
+  Exclude Traits: <textarea id="exTraits" name='tags2' placeholder='Add Traits'></textarea><br>  
  </fieldset>
 </div>
 
 <div class='col-sm-6'>
  <fieldset>
   <legend align="center">STATISTICS</legend>
-  Include Traits: <textarea id="inStats" name='tags2' placeholder='Add Statistics'>The Matrix, Pulp Fiction, Mad Max</textarea><br>
-  Exclude Traits: <textarea id="exStats" name='tags2' placeholder='Add Statistics'>The Matrix, Pulp Fiction, Mad Max</textarea><br>  
+  Include Traits: <textarea id="inStats" name='tags2' placeholder='Add Statistics'></textarea><br>
+  Exclude Traits: <textarea id="exStats" name='tags2' placeholder='Add Statistics'></textarea><br>  
  </fieldset>
 </div>
 </div>
 <h4> CSV Result </h4>
 
 <input id="traitValues" value='<%= @trait.trait %>' type="hidden" /> 
+<input id="traitgroupValues" value='<%= @group_array %>' type="hidden" /> 
+
 <% unless @csv_table.nil? %>
-<table id="vsd_table">
+<table id="vgs_table">
 <thead>
   <tr>
-  <% @csv_table.headers.each do |header| %>
+  <% @vgs_header.each do |header| %>
     <th><%= header %></th>
   <% end %> 
   </tr>
   </thead>
   <tbody>
-  <% @csv_table.each do |row| %>
+  <% @vgs_body.each do |row| %>
     <tr>
     <% row.each do |element| %>
-      <td><%= element[1] %></td>
+      <td><%= element %></td>
     <% end %>
     </tr>
   <% end %> 
@@ -66,10 +68,10 @@
   <div class="modal-dialog">
 
     <!-- Modal content-->
-    <%= form_tag ctg_maps_path, multipart: true do %>
+    <%= form_tag ctg_maps_path, :id => 'ctg_modal', multipart: true do %>
   
   <%= hidden_field_tag :id, @map.id%>
-  
+  <%= hidden_field_tag :selected_traits, @map.id%>
 
     <div class="modal-content">
       <div class="modal-header">
@@ -78,8 +80,8 @@
       </div>
       <div class="modal-body">
         <div class="form-group">          
-          <div class="col-12">
-            <input class="form-control" type="search" placeholder="Trait Group Name" id="example-search-input" required="required">
+          <div class="col-12">            
+            <%= text_field_tag :trait_group_name, :autofocus => true, class: 'form-control', :required=>'required' %>
           </div>
           <div class="col-12">
           <br/>
@@ -92,14 +94,14 @@
         <div id="checkbox_wrapper">
         <% csv_headers.each do |button| %>
         <span class="button-checkbox">
-          <button type="button" class="btn" data-color="primary"><%= button %></button>
+          <button type="button" class="btn" data-color="default"><%= button %></button>
           <input type="checkbox" class="hidden" checked />
         </span>                       
         <% end %>   
         </div>
       </div>
       <div class="modal-footer">
-        <%= submit_tag "Save", class: "btn btn-primary" %>
+        <%= submit_tag "Save", class: "btn btn-primary"%>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
