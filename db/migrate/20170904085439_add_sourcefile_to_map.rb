@@ -1,5 +1,5 @@
 class AddSourcefileToMap < ActiveRecord::Migration[5.1]
   def change
-    add_column :maps, :sourcefile, :attachment
+    add_column :maps, :sourcefile, :string
   end
 end

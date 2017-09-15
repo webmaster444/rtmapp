@@ -1,0 +1,59 @@
+<div class='row'>
+<input type="hidden" class="page_type" value="view_single_graph"/>
+<h4> Single Graph: <%= @map.maptitle %> </h4>
+<span> Select Data for Map Group Data Summary </span>
+ <div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Chart Type
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Box Plot</a></li>
+    <li><a href="#">Radar</a></li>
+    <li><a href="#">Heatmap</a></li>
+  </ul>
+</div> 
+<div class='row'>
+<div class='col-sm-6'>
+ <fieldset>
+  <legend align="center">GROUPS</legend>
+  Include Groups: <textarea id="inGroups" name='tags2' placeholder='Add Groups'></textarea><br>
+  Exclude Groups: <textarea id="exGroups" name='tags2' placeholder='Add Groups'></textarea><br>  
+ </fieldset>
+</div>
+<div class='col-sm-6'>
+ <fieldset>
+  <legend align="center">TAGS</legend>
+  Include Tags: <textarea id="inTags" name='tags2' placeholder='Add Tags'></textarea><br>
+  Exclude Tags: <textarea id="exTags" name='tags2' placeholder='Add Tags'></textarea><br>  
+ </fieldset>
+</div>
+</div>
+
+<div class='row'>
+<div class='col-sm-6'>
+ <fieldset>
+  <legend align="center">TRAITS</legend>
+  Include Traits: <textarea id="inTraits" name='tags2' placeholder='Add Traits'></textarea><br>
+  Exclude Traits: <textarea id="exTraits" name='tags2' placeholder='Add Traits'></textarea><br>  
+ </fieldset>
+</div>
+
+<div class='col-sm-6'>
+ <fieldset>
+  <legend align="center">STATISTICS</legend>
+  Include Traits: <textarea id="inStats" name='tags2' placeholder='Add Statistics'></textarea><br>
+  Exclude Traits: <textarea id="exStats" name='tags2' placeholder='Add Statistics'></textarea><br>  
+ </fieldset>
+</div>
+</div>
+<input id="traitValues" value='<%= @trait.trait %>' type="hidden" /> 
+<input id="traitgroupValues" value='<%= @group_array %>' type="hidden" /> 
+
+<%= hidden_field_tag :id, @map.id%>
+<%= hidden_field_tag :selected_traits, @map.id%>
+
+<div class=row>
+<div class='col-sm-12'>
+<button type="button" class="btn btn-primary pull-right"> Export Chart </button>
+<button type="button" class="btn btn-primary pull-left"> Create Comparison </button>
+</div>
+</div>

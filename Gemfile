@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
 end
 ruby '2.3.1'
 gem 'rails', '~> 5.1.3'
-gem 'sqlite3'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -22,6 +21,7 @@ group :development, :test do
   gem 'selenium-webdriver'
 end
 group :development do
+gem 'sqlite3'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
@@ -38,4 +38,7 @@ group :development do
   gem 'better_errors'
   gem 'hub', :require=>nil
   gem 'rails_layout'
+end
+group :production do
+  gem 'pg'
 end

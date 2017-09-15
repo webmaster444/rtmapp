@@ -1,0 +1,63 @@
+<%= stylesheet_link_tag 'map_dashboard' %>
+<div class='row'>
+<input type="hidden" class="page_type" value="map_dashboard"/>
+<h4> Map Dashboard: <%= @map.maptitle %> </h4>
+<span> Select Data for Map Group Data Summary </span>
+<div class='pull-right'>
+<button type="button" class="btn btn-primary"> Export Selection as Map </button>
+<button type="button" class="btn btn-primary"> Export Entire Map </button>
+</div>
+</div>
+<div class='row'>
+<div class='col-sm-6'>
+ <fieldset>
+  <legend align="center">GROUPS</legend>
+  Include Groups: <textarea id="inGroups" name='tags2' placeholder='Add Groups'></textarea><br>
+  Exclude Groups: <textarea id="exGroups" name='tags2' placeholder='Add Groups'></textarea><br>  
+ </fieldset>
+</div>
+<div class='col-sm-6'>
+ <fieldset>
+  <legend align="center">TAGS</legend>
+  Include Tags: <textarea id="inTags" name='tags2' placeholder='Add Tags'></textarea><br>
+  Exclude Tags: <textarea id="exTags" name='tags2' placeholder='Add Tags'></textarea><br>  
+ </fieldset>
+</div>
+</div>
+
+<div class='row'>
+<div class='col-sm-6'>
+ <fieldset>
+  <legend align="center">TRAITS</legend>
+  Include Traits: <textarea id="inTraits" name='tags2' placeholder='Add Traits'></textarea><br>
+  Exclude Traits: <textarea id="exTraits" name='tags2' placeholder='Add Traits'></textarea><br>  
+ </fieldset>
+</div>
+
+<div class='col-sm-6'>
+ <fieldset>
+  <legend align="center">STATISTICS</legend>
+  Include Traits: <textarea id="inStats" name='tags2' placeholder='Add Statistics'></textarea><br>
+  Exclude Traits: <textarea id="exStats" name='tags2' placeholder='Add Statistics'></textarea><br>  
+ </fieldset>
+</div>
+</div>
+<input id="traitValues" value='<%= @trait.trait %>' type="hidden" /> 
+<input id="traitgroupValues" value='<%= @group_array %>' type="hidden" /> 
+
+<%= hidden_field_tag :id, @map.id%>
+<%= hidden_field_tag :selected_traits, @map.id%>
+
+<div id="box_plots">
+
+</div>
+<div id="mean_standard_deviation">
+</div>
+
+<div id="radar_chart">
+
+</div>
+<div id="group_heat_map">
+
+</div>
+<%= javascript_include_tag('box_plots.js') %>

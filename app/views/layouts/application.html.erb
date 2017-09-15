@@ -20,9 +20,11 @@
       <div id="main">
         <div class="container-fluid" >
             <div class="row">
-                <div class="col-md-12">            
-                <%= render 'layouts/messages' %>
-                  <%= yield %>  
+                <div class="col-md-12">   
+                  <div class="content">
+                    <%= render 'layouts/messages' %>
+                    <%= yield %>  
+                  </div>
                 </div>
             </div>
         </div>   
