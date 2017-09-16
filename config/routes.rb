@@ -12,8 +12,7 @@ Rails.application.routes.draw do
 		collection {post:import}
 		collection {post:ctg}
 	end
-	as :map do
-		get "maps/:id/vsd", to:"maps#vsd"
+	as :map do		
 		get "maps/:id/vgs", to:"maps#vgs" , as: "groupsummary"		
 		get "maps/:id/vcm", to:"maps#vcm" , as: "correlationmatrix"		
 		get "maps/:id/vsg", to:"maps#viewsinglegraph" , as: "singlegraph"

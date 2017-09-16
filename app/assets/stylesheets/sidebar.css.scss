@@ -30,7 +30,7 @@ $highlightColor : #E32B30;
   list-style: none;
   padding: 0px;
   margin: 0px;
-  line-height: 40px;
+  line-height: 35px;
   cursor: pointer;
 }
 .nav-side-menu ul :not(collapsed) .arrow:before,
@@ -122,7 +122,7 @@ body {
 }
 
 #menu-content{
-  padding: 30px 30px;
+  padding: 10px 30px;
   .item-title{
     font-weight: 800;
     font-size: 20px;

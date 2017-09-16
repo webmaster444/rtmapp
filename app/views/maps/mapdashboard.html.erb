@@ -47,17 +47,23 @@
 
 <%= hidden_field_tag :id, @map.id%>
 <%= hidden_field_tag :selected_traits, @map.id%>
+<div class='chart_wrapper col-sm-8 col-sm-offset-2 text-center'>
+  <div id="box_plots">
 
-<div id="box_plots">
-
+  </div>
 </div>
+<div class='chart_wrapper col-sm-8 col-sm-offset-2 text-center'>
 <div id="mean_standard_deviation">
 </div>
-
+</div>
+<div class='chart_wrapper col-sm-8 col-sm-offset-2 text-center'>
 <div id="radar_chart">
 
 </div>
+</div>
+<div class='chart_wrapper col-sm-8 col-sm-offset-2 text-center'>
 <div id="group_heat_map">
 
+</div>
 </div>
 <%= javascript_include_tag('box_plots.js') %>

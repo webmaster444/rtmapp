@@ -4,10 +4,15 @@ class MapsController < ApplicationController
   def show
   	$selectedmap = Map.find(params[:id])
   	@map = Map.find(params[:id])					
-  	
+
 	unless @map.sourcefile.nil?
 		open_file_name = Rails.root.join('public', 'uploads', @map.sourcefile)
-		@csv_table = CSV.open(open_file_name, :headers => true).read	
+		if File.exist?(open_file_name)
+			@csv_table = CSV.open(open_file_name, :headers => true).read	
+		else
+			@map.update(sourcefile: nil)
+			redirect_to @map, :notice => "Sorry but we couldn't open that file. Please upload file again"
+		end		
 	end
   end
   def index
@@ -36,14 +41,6 @@ class MapsController < ApplicationController
 	  else
 	    render 'new'
 	  end
-	end
-	
-	def vsd
-		@map = Map.find(params[:id])					
-		unless @map.sourcefile.nil?
-			open_file_name = Rails.root.join('public', 'uploads', @map.sourcefile)
-			@csv_table = CSV.open(open_file_name, :headers => true).read	
-		end
 	end
 
 	def vcm		
@@ -177,21 +174,25 @@ class MapsController < ApplicationController
 	def import		
 		uploaded_io = params[:sourcefile]
 		
-		uploaded_file_name = Time.now.strftime("%d%m%y%H%M%S").to_s + uploaded_io.original_filename.to_s
-		
-		File.open(Rails.root.join('public', 'uploads', uploaded_file_name), 'wb') do |file|
-		  file.write(uploaded_io.read)
-		end					
-		
-		headers = CSV.read(Rails.root.join('public', 'uploads', uploaded_file_name), headers: true).headers
-		headers.shift(4)	
-		
-		trait = Trait.new(trait: headers)
-		trait.save
-		
-		@map = Map.find(params[:id])	
-		if @map.update(sourcefile: uploaded_file_name,trait_id: trait.id)		
-		  redirect_to @map		
+		if uploaded_io.nil?
+
+		else
+			uploaded_file_name = Time.now.strftime("%d%m%y%H%M%S").to_s + uploaded_io.original_filename.to_s
+			
+			File.open(Rails.root.join('public', 'uploads', uploaded_file_name), 'wb') do |file|
+			  file.write(uploaded_io.read)
+			end					
+			
+			headers = CSV.read(Rails.root.join('public', 'uploads', uploaded_file_name), headers: true).headers
+			headers.shift(4)	
+			
+			trait = Trait.new(trait: headers)
+			trait.save
+			
+			@map = Map.find(params[:id])	
+			if @map.update(sourcefile: uploaded_file_name,trait_id: trait.id)		
+			  redirect_to @map		
+			end
 		end
 	end
 
